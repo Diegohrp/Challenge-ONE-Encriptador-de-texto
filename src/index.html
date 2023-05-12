@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Nunito+Sans:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <title>Encriptador</title>
+  </head>
+  <body>
+    <header>
+      <img src="./assets/img/lock.png" alt="Logo" />
+      <h2>Encriptador de palabras</h2>
+    </header>
+    <main>
+      <section class="cipher">
+        <textarea placeholder="Escribe tu mensaje aquí."></textarea>
+        <div class="cipher__note">
+          <img src="./assets/icons/warning-icon.svg" alt="icon" />
+          <p>Solo letras minúsculas y sin acentos.</p>
+        </div>
+        <div class="cipher__buttons">
+          <button>Encriptar</button>
+          <button>Desencriptar</button>
+        </div>
+      </section>
+      <aside class="result">
+        <div class="result__none">
+          <h3>Ningún mensaje fue encontrado</h3>
+          <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+        </div>
+      </aside>
+    </main>
+    <footer></footer>
+  </body>
+</html>
