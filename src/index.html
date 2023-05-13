@@ -25,6 +25,7 @@
       <img src="./assets/img/lock.png" alt="Logo" />
       <h2>Encriptador de palabras</h2>
     </header>
+
     <main>
       <section class="cipher">
         <textarea placeholder="Escribe tu mensaje aquí."></textarea>
@@ -39,11 +40,20 @@
       </section>
       <aside class="result">
         <div class="result__none">
+          <picture>
+            <source
+              media="(min-width:1000px)"
+              srcset="./assets/icons/searching-bro.svg"
+            />
+            <img src="" alt="" />
+          </picture>
           <h3>Ningún mensaje fue encontrado</h3>
           <p>Ingresa el texto que desees encriptar o desencriptar.</p>
         </div>
       </aside>
     </main>
-    <footer></footer>
+    <footer>
+      <span>Made with 💚 by <a href="#">@Diego_hrp</a></span>
+    </footer>
   </body>
 </html>
