@@ -28,7 +28,7 @@ textarea.addEventListener('input', () => {
 
 //function for the encryptButton
 function execute(fn) {
-  if (encrypter._message.length < 1 || !encrypter.valid) {
+  if (encrypter.message.length < 1 || !encrypter.valid) {
     emptyResult.style.display = 'block';
     result.style.display = 'none';
   } else {
@@ -41,4 +41,9 @@ function execute(fn) {
 //function for the encryptButton
 encryptButton.addEventListener('click', () =>
   execute(encrypter.encrypt.bind(encrypter))
+);
+
+//function for the decryptButton
+decryptButton.addEventListener('click', () =>
+  execute(encrypter.decrypt.bind(encrypter))
 );

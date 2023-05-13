@@ -1,7 +1,7 @@
 class Encrypter {
   constructor() {
-    this._message = '';
-    this._encrypted = '';
+    this._message = ''; //what the user writes on the textarea
+    this._encrypted = ''; //the result of encryption/decryption
     this.valid = false;
     this.encryptionKeys = {
       a: 'ai',
@@ -25,9 +25,17 @@ class Encrypter {
     char === '' ? (this._encrypted = '') : (this._encrypted += char);
   }
 
+  //Getters
+  get message() {
+    return this._message;
+  }
+  get encrypted() {
+    return this._encrypted;
+  }
+
   validateData() {
-    for (let i = 0; i < this._message.length; i++) {
-      const asciiCode = this._message[i].charCodeAt();
+    for (let i = 0; i < this.message.length; i++) {
+      const asciiCode = this.message[i].charCodeAt();
       //If the ascii code is not in the range of 97-122 (a-z) or is not 32 (space) the message is not valid
       if (asciiCode !== 32 && (asciiCode < 97 || asciiCode > 122)) {
         this.valid = false;
@@ -39,17 +47,40 @@ class Encrypter {
   }
 
   encrypt() {
-    this.encrypted = ''; //cleans previous encryptions
+    this.encrypted = ''; //cleans previous encryptions/decryptions
 
-    for (let i = 0; i < this._message.length; i++) {
-      const char = this._message[i];
-      if (keys[char]) {
-        this.encrypted = keys[char]; //adds the "char" encrypted;
+    for (let i = 0; i < this.message.length; i++) {
+      const char = this.message[i];
+      if (this.encryptionKeys[char]) {
+        this.encrypted = this.encryptionKeys[char]; //adds the "char" encrypted;
       } else {
         this.encrypted = char;
       }
     }
 
-    return this._encrypted;
+    return this.encrypted;
+  }
+
+  decrypt() {
+    this.encrypted = ''; //cleans previous encryptions/decryptions
+    let p1 = 0;
+
+    for (let p2 = 1; p2 <= this._message.length; p2++) {
+      //this help us to know when the letter in p1 is the begining of some key of "decryption Keys"
+      if (this.encryptionKeys[this.message[p1]]) {
+        //verify if the string from p1-p2 matches a key of "decryptionKeys"
+        const key = this.message.slice(p1, p2);
+        if (this.decryptionKeys[key]) {
+          //if the key matches, decrypt the string
+          this.encrypted = this.decryptionKeys[key];
+          p1 = p2;
+        }
+      } else {
+        //the letter in this.message is not encrypted, it passes without changes.
+        this.encrypted = this.message[p1];
+        p1++;
+      }
+    }
+    return this.encrypted;
   }
 }
