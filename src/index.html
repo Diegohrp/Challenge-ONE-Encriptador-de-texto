@@ -27,15 +27,18 @@
     </header>
 
     <main>
-      <section class="cipher">
-        <textarea placeholder="Escribe tu mensaje aquí."></textarea>
-        <div class="cipher__note">
+      <section class="encrypter">
+        <textarea
+          id="message"
+          placeholder="Escribe tu mensaje aquí."
+        ></textarea>
+        <div class="encrypter__note">
           <img src="./assets/icons/warning-icon.svg" alt="icon" />
           <p>Solo letras minúsculas y sin acentos.</p>
         </div>
-        <div class="cipher__buttons">
-          <button>Encriptar</button>
-          <button>Desencriptar</button>
+        <div class="encrypter__buttons">
+          <button id="encrypt">Encriptar</button>
+          <button id="decrypt">Desencriptar</button>
         </div>
       </section>
       <aside class="result">
@@ -50,10 +53,18 @@
           <h3>Ningún mensaje fue encontrado</h3>
           <p>Ingresa el texto que desees encriptar o desencriptar.</p>
         </div>
+        <div class="result__encrypted">
+          <p id="encrypter-result">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+          <button>Copiar</button>
+        </div>
       </aside>
     </main>
     <footer>
       <span>Made with 💚 by <a href="#">@Diego_hrp</a></span>
     </footer>
+    <script src="./encrypter.js"></script>
+    <script src="./main.js"></script>
   </body>
 </html>
