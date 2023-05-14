@@ -60,7 +60,8 @@ function showCopyMessage() {
   const resultDiv = document.querySelector('.result__encrypted');
   const msg = document.createElement('span');
   msg.innerText = '¡Copiado a la papelera!';
-  resultDiv.append(msg);
+  resultDiv.appendChild(msg);
+  setTimeout(() => msg.remove(), 2500);
 }
 
 function copy() {
