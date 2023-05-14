@@ -66,12 +66,12 @@ class Encrypter {
     let p1 = 0;
 
     for (let p2 = 1; p2 <= this._message.length; p2++) {
-      //this help us to know when the letter in p1 is the begining of some key of "decryption Keys"
+      //this helps us to know when the letter in p1 is the begining of some key of "decryptionKeys"
       if (this.encryptionKeys[this.message[p1]]) {
-        //verify if the string from p1-p2 matches a key of "decryptionKeys"
+        //verifies if the string from p1-p2 matches a key of "decryptionKeys"
         const key = this.message.slice(p1, p2);
         if (this.decryptionKeys[key]) {
-          //if the key matches, decrypt the string
+          //if the key matches, decrypts the string
           this.encrypted = this.decryptionKeys[key];
           p1 = p2;
         }

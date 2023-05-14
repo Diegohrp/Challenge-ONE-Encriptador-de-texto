@@ -65,11 +65,13 @@ function showCopyMessage() {
 }
 
 function copy() {
-  navigator.clipboard
-    .writeText(encrypter.encrypted)
-    .then(showCopyMessage, () => {
-      console.log('FAILED');
-    });
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard
+      .writeText(encrypter.encrypted)
+      .then(showCopyMessage, () => {
+        console.log('FAILED');
+      });
+  }
 }
 
 //Encrypter functions
