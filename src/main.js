@@ -33,7 +33,7 @@ textarea.addEventListener('input', () => {
 function showResult(msg) {
   result.innerHTML = `
   <div class="result__encrypted">
-    <p>
+    <p id ="msg-result">
       ${msg}
     </p>
     <button onclick="copy()">Copiar</button>
@@ -71,6 +71,17 @@ function copy() {
       .then(showCopyMessage, () => {
         console.log('FAILED');
       });
+  } else {
+    const toCopy = document.getElementById('msg-result');
+    toCopy.select();
+    document.execCommand('copy');
+  }
+}
+
+function goToResult() {
+  const isMobile = window.matchMedia('(max-width:700px)').matches;
+  if (isMobile) {
+    result.scrollIntoView({ behavior: 'smooth' });
   }
 }
 
@@ -84,6 +95,7 @@ function execute(fn) {
     const msg = fn();
     showResult(msg);
   }
+  goToResult();
 }
 
 //function for the encryptButton

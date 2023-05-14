@@ -123,7 +123,7 @@ main {
   justify-content: space-between;
   text-align: left;
   position: relative;
-  animation: swipe-up 0.4s linear both;
+  animation: swipe-up 0.8s linear both;
 }
 .result__encrypted p {
   max-height: 455px;
