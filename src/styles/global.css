@@ -1,0 +1,43 @@
+:root {
+  --background-color: #2c3333;
+  --text-color: #cbe4de;
+  --title-color: #f8f8f8;
+  --primary-color: #12a8ad;
+  --font-titles: 'Montserrat', sans-serif;
+  --font-text: 'Nunito Sans', sans-serif;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--background-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

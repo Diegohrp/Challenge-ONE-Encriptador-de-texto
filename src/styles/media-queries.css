@@ -1,0 +1,30 @@
+/*Tablet view*/
+@media (min-width: 700px) {
+  .encrypter__buttons {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .encrypter__buttons button {
+    width: 46%;
+  }
+}
+
+/*Desktop view*/
+@media (min-width: 1000px) {
+  header {
+    justify-content: flex-start;
+    padding-left: 84px;
+  }
+  main {
+    grid-template-columns: 2fr 1fr;
+    position: relative;
+  }
+  .encrypter textarea {
+    height: 400px;
+  }
+  .result {
+    margin: 0;
+    height: 110%;
+    align-self: flex-end;
+  }
+}
