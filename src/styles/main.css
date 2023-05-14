@@ -97,7 +97,7 @@ main {
   margin-top: 50px;
   width: 80%;
   min-height: 186px;
-  padding: 30px;
+  padding: 20px;
   text-align: center;
   font-family: var(--font-text);
   font-size: 1.8rem;
@@ -126,10 +126,13 @@ main {
   animation: swipe-up 0.4s linear both;
 }
 .result__encrypted p {
-  padding: 20px 0;
   max-height: 455px;
+  width: 100%;
+  padding: 20px 0;
   color: var(--background-color);
   overflow-y: scroll;
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 .result__encrypted span {
   width: 100%;
