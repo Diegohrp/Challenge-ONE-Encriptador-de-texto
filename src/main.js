@@ -64,15 +64,29 @@ function showCopyMessage() {
   setTimeout(() => msg.remove(), 2500);
 }
 
+function copySupport() {
+  const auxInput = document.createElement('input');
+  auxInput.style.display = 'none';
+  result.appendChild(auxInput);
+  auxInput.value = encrypter.encrypted;
+  auxInput.select();
+  document.execCommand('copy');
+  auxInput.remove();
+  showCopyMessage();
+}
+
 function copy() {
-  navigator.permissions.query({ name: 'clipboard-write' }).then((result) => {
-    if (result.state === 'granted' || result.state === 'prompt') {
-      navigator.clipboard
-        .writeText(encrypter.encrypted)
-        .then(showCopyMessage)
-        .catch(() => console.error('Copy failed'));
-    }
-  });
+  navigator.permissions
+    .query({ name: 'clipboard-write' })
+    .then((result) => {
+      if (result.state === 'granted' || result.state === 'prompt') {
+        navigator.clipboard
+          .writeText(encrypter.encrypted)
+          .then(showCopyMessage)
+          .catch(() => console.error('Copy failed'));
+      }
+    })
+    .catch(copySupport);
 }
 
 function goToResult() {
