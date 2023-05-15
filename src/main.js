@@ -65,18 +65,14 @@ function showCopyMessage() {
 }
 
 function copy() {
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard
-      .writeText(encrypter.encrypted)
-      .then(showCopyMessage, () => {
-        console.log('FAILED');
-      });
-  } else {
-    const toCopy = document.getElementById('msg-result');
-    toCopy.select();
-    document.execCommand('copy');
-    showCopyMessage();
-  }
+  navigator.permissions.query({ name: 'clipboard-write' }).then((result) => {
+    if (result.state === 'granted' || result.state === 'prompt') {
+      navigator.clipboard
+        .writeText(encrypter.encrypted)
+        .then(showCopyMessage)
+        .catch(() => console.error('Copy failed'));
+    }
+  });
 }
 
 function goToResult() {
