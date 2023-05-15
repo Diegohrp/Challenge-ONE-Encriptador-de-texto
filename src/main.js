@@ -81,14 +81,10 @@ function copy() {
     return;
   }
 
-  navigator.permissions.query({ name: 'clipboard-write' }).then((result) => {
-    if (result.state === 'granted' || result.state === 'prompt') {
-      navigator.clipboard
-        .writeText(encrypter.encrypted)
-        .then(showCopyMessage)
-        .catch(() => console.error('Copy failed'));
-    }
-  });
+  navigator.clipboard
+    .writeText(encrypter.encrypted)
+    .then(showCopyMessage)
+    .catch(copySupport);
 }
 
 function goToResult() {
