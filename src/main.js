@@ -75,6 +75,7 @@ function copy() {
     const toCopy = document.getElementById('msg-result');
     toCopy.select();
     document.execCommand('copy');
+    showCopyMessage();
   }
 }
 
