@@ -76,14 +76,17 @@ function copySupport() {
 }
 
 function copy() {
+  if (!navigator.clipboard) {
+    copySupport();
+    return;
+  }
+
   navigator.permissions.query({ name: 'clipboard-write' }).then((result) => {
     if (result.state === 'granted' || result.state === 'prompt') {
       navigator.clipboard
         .writeText(encrypter.encrypted)
         .then(showCopyMessage)
         .catch(() => console.error('Copy failed'));
-    } else {
-      copySupport();
     }
   });
 }
