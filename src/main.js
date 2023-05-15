@@ -79,6 +79,7 @@ function copy() {
     .writeText(encrypter.encrypted)
     .then(showCopyMessage)
     .catch(copySupport);
+  textarea.value = '';
 }
 
 function goToResult() {
