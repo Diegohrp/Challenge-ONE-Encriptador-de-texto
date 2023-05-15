@@ -65,22 +65,16 @@ function showCopyMessage() {
 }
 
 function copySupport() {
-  const auxInput = document.createElement('input');
-  auxInput.style.display = 'none';
-  result.appendChild(auxInput);
+  const auxInput = document.createElement('textarea');
   auxInput.value = encrypter.encrypted;
+  result.appendChild(auxInput);
   auxInput.select();
   document.execCommand('copy');
-  auxInput.remove();
+  result.removeChild(auxInput);
   showCopyMessage();
 }
 
 function copy() {
-  if (!navigator.clipboard) {
-    copySupport();
-    return;
-  }
-
   navigator.clipboard
     .writeText(encrypter.encrypted)
     .then(showCopyMessage)
